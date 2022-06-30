@@ -2,22 +2,27 @@
 
 Based on [Veritasium's video](https://www.youtube.com/watch?v=iSNsgj1OCLA)
 
-# Instructions
+# Usage
 
 ```js
 git clone https://github.com/kylemilloy/prisoner-riddle
 
 cd prisoner-riddle
 npm install
-npm run experiment
+npm start
 ```
 
-# Modifying the experiment
+You may modify the experiment's parameters by passing different values in the command-line such as:
 
-You may open the `index.js` file and change the three variables at the top to alter the behaviour of the experiment. These values are:
+- `--choices`: The number of choices each prisoner gets to select their number
+- `--prisoners`: The number of prisoners in the experiment
+- `--iterations`: The number of times to run the experiment
 
-| Name               | Description                                             | Default |
-| ------------------ | ------------------------------------------------------- | ------- |
-| numberOfChoices    | The number of choices each prisoner gets to make        | 50      |
-| numberOfPrisoners  | The number of prisoners that are part of the experiment | 100     |
-| numberOfIterations | The number of times to run the experiment               | 1000    |
+Some examples of this usage are:
+
+```
+npm start --choices=99
+npm start --choices=2 --prisoners=1
+npm start --iterations=10000
+npm start --iterations=10 --choices=10 --prisoners=25
+```

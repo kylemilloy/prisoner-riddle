@@ -5,29 +5,26 @@ const remove = require('lodash/remove')
 const sample = require('lodash/sample')
 const shuffle = require('lodash/shuffle')
 
-/**
- * Change these values to modify the experiment's variables
- */
-
 // the number of boxes each prisoner is allowed to pick
-const numberOfChoices = 50
+const numberOfChoices = process.env.npm_config_choices || process.env.npm_package_config_choices
 
 // the number of prisoners that must pass
-const numberOfPrisoners = 100
+const numberOfPrisoners = process.env.npm_config_prisoners || process.env.npm_package_config_prisoners
 
 // the number of times to run this experiment
-const numberOfIterations = 10000
+const numberOfIterations = process.env.npm_config_iterations || process.env.npm_package_config_iterations
 
-console.log(`Win rate for random with ${numberOfChoices} choices, ${numberOfPrisoners} prisoners, and ${numberOfIterations} iterations:\n${winRate(random, numberOfIterations)}\n`)
-console.log(`Win rate for optimal with ${numberOfChoices} choices, ${numberOfPrisoners} prisoners, and ${numberOfIterations} iterations:\n${winRate(optimal, numberOfIterations)}\n`)
+console.log(`With ${numberOfChoices} choices, ${numberOfPrisoners} prisoners, and ${numberOfIterations} iterations the win rates are...`)
+console.log(`Random: ${winRate(random, numberOfIterations)}`)
+console.log(`Loop Strategy: ${winRate(loop, numberOfIterations)}`)
 
 /**
- * Use an optimal strategy to make prisoner decisions when getting boxes
+ * Use a loop strategy to make prisoner decisions when getting boxes
  * @param {integer} prisoner
  * @param {array} boxes
  * @return boolean
  */
-function optimal(prisoner, boxes) {
+function loop(prisoner, boxes) {
   // start with the prisoner's number
   let choice = prisoner
 

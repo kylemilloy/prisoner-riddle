@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "experiment": "node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "config": {
+    "choices": 50,
+    "prisoners": 100,
+    "iterations": 1000
   },
   "author": "",
   "license": "ISC",
