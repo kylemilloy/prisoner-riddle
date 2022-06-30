@@ -18,8 +18,8 @@ const numberOfPrisoners = 100
 // the number of times to run this experiment
 const numberOfIterations = 10000
 
-console.log(`Win rate for random: ${winRate(random, numberOfIterations)}`)
-console.log(`Win rate for random: ${winRate(optimal, numberOfIterations)}`)
+console.log(`Win rate for random with ${numberOfChoices} choices, ${numberOfPrisoners} prisoners, and ${numberOfIterations} iterations:\n${winRate(random, numberOfIterations)}\n`)
+console.log(`Win rate for optimal with ${numberOfChoices} choices, ${numberOfPrisoners} prisoners, and ${numberOfIterations} iterations:\n${winRate(optimal, numberOfIterations)}\n`)
 
 /**
  * Use an optimal strategy to make prisoner decisions when getting boxes
